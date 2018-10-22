@@ -1,0 +1,11 @@
+{
+  "name": "data-css",
+  "version": "1.0.0",
+  "description": "Inline styling and much more with data-attributes.",
+  "main": "index.js",
+  "repository": "https://github.com/knocus/data-css.git",
+  "author": "Sahal Sajjad",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {}
+}
