@@ -27,13 +27,22 @@ function dataCSS(attribute:string, wrapper?:string) {
     })
 }
 
-let attributes = Object.keys(window.getComputedStyle(window.document.body));
-attributes.forEach((elem:any) => {
-    const attribute = decamelize(elem);
-    switch(attribute){
-        case 'background-image':
-            dataCSS(attribute, 'url');
-        default:
-            dataCSS(attribute);
+
+const init = () => { 
+    let attributes = Object.keys(window.getComputedStyle(window.document.body));
+    attributes.forEach((elem:any) => {
+        const attribute = decamelize(elem);
+        switch(attribute){
+            case 'background-image':
+                dataCSS(attribute, 'url');
+            default:
+                dataCSS(attribute);
+        }
+    })
+}
+
+document.onreadystatechange = function () {
+    if (document.readyState === "complete") {
+        init();
     }
-});
+}
