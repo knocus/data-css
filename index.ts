@@ -27,7 +27,7 @@ function dataCSS(attribute:string, wrapper?:string) {
     })
 }
 
-let attributes = Object.keys(window.document.body.style);
+let attributes = Object.keys(window.getComputedStyle(window.document.body));
 attributes.forEach((elem:any) => {
     const attribute = decamelize(elem);
     switch(attribute){

@@ -27,7 +27,7 @@ function dataCSS(attribute, wrapper) {
         }
     });
 }
-var attributes = Object.keys(window.document.body.style);
+var attributes = Object.keys(window.getComputedStyle(window.document.body));
 attributes.forEach(function (elem) {
     var attribute = decamelize(elem);
     switch (attribute) {
