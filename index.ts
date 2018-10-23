@@ -29,16 +29,18 @@ function dataCSS(attribute:string, wrapper?:string) {
 
 
 const init = () => { 
-    let attributes = Object.keys(window.getComputedStyle(window.document.body));
-    attributes.forEach((elem:any) => {
-        const attribute = decamelize(elem);
+    var CSSAttributes = window.getComputedStyle(window.document.body)
+    let attributes = Object.keys(CSSAttributes);
+    for(let i=0; i < attributes.length; i++){
+
+        const attribute = decamelize(CSSAttributes[attributes[i] as any]);
         switch(attribute){
             case 'background-image':
                 dataCSS(attribute, 'url');
             default:
                 dataCSS(attribute);
         }
-    })
+    }
 }
 
 document.onreadystatechange = function () {

@@ -27,13 +27,22 @@ function dataCSS(attribute, wrapper) {
         }
     });
 }
-var attributes = Object.keys(window.getComputedStyle(window.document.body));
-attributes.forEach(function (elem) {
-    var attribute = decamelize(elem);
-    switch (attribute) {
-        case 'background-image':
-            dataCSS(attribute, 'url');
-        default:
-            dataCSS(attribute);
+var init = function () {
+    var CSSAttributes = window.getComputedStyle(window.document.body);
+    var attributes = Object.keys(CSSAttributes);
+    for (var i = 0; i < attributes.length; i++) {
+        var attribute = decamelize(CSSAttributes[attributes[i]]);
+        switch (attribute) {
+            case 'background-image':
+                dataCSS(attribute, 'url');
+            default:
+                dataCSS(attribute);
+        }
+        console.log(attribute);
     }
-});
+};
+document.onreadystatechange = function () {
+    if (document.readyState === "complete") {
+        init();
+    }
+};
